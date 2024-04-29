@@ -44,11 +44,11 @@ X Rota para excluir uma categoria.
 Funcionalidades Adicionais utilizando Métodos de Array:
 
 X Rota para filtrar tarefas por categoria.
-Rota para listar tarefas concluídas.
-Rota para listar tarefas pendentes.
+X Rota para listar tarefas concluídas.
+X Rota para listar tarefas pendentes.
 Rota para listar tarefas que vencem em um determinado período.
-Rota para contar o número total de tarefas de um usuário.
-Rota para encontrar a tarefa mais recente de um usuário.
+X Rota para contar o número total de tarefas de um usuário.
+X Rota para encontrar a tarefa mais recente de um usuário.
 
 Funcionalidades com Métodos de Array:
 

@@ -47,6 +47,19 @@ class taskService {
         return taskModel.find({ status: 'pendente' });
     }
 
+    async countTasksByUserId(userId: string) {
+        const user = await userModel.findById(userId);
+        if (!user) {
+            throw new Error('Usuário não encontrado');
+        }
+        return user.tasks.length;
+    }
+
+    async findMostRecentTaskByUserId(userId: string) {
+        const task = await taskModel.findOne({ author: userId }).sort({ creation_date: -1 });
+        return task;
+    }
+
     async update(id: string, task: taskType) {
         const updatedTask = await taskModel.findByIdAndUpdate(id, {
             title: task.title,

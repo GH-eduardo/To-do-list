@@ -40,6 +40,18 @@ class taskController {
         res.json(tasks);
     }
 
+    async countTasksByUserId(req: Request, res: Response) {
+        const userId = req.params.id;
+        const count = await taskService.countTasksByUserId(userId);
+        res.json(count);
+    }
+
+    async findMostRecentTaskByUserId(req: Request, res: Response) {
+        const userId = req.params.id;
+        const task = await taskService.findMostRecentTaskByUserId(userId);
+        res.json(task);
+    }
+
     async update(req: Request, res: Response) {
         const updatedTask = await taskService.update(req.params.id, req.body)
         res.status(200)
