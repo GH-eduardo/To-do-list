@@ -30,7 +30,15 @@ class taskController {
         return res.json(tasks);
     }
 
+    async getCompletedTasks(req: Request, res: Response) {
+        const tasks = await taskService.getCompletedTasks();
+        res.json(tasks);
+    }
 
+    async getPendingTasks(req: Request, res: Response) {
+        const tasks = await taskService.getPendingTasks();
+        res.json(tasks);
+    }
 
     async update(req: Request, res: Response) {
         const updatedTask = await taskService.update(req.params.id, req.body)

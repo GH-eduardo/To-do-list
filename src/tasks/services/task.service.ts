@@ -38,8 +38,14 @@ class taskService {
         const tasks = await taskModel.find({ category: categoryId });
         return tasks;
     }
-    
 
+    async getCompletedTasks() {
+        return taskModel.find({ status: 'concluída' });
+    }
+
+    async getPendingTasks() {
+        return taskModel.find({ status: 'pendente' });
+    }
 
     async update(id: string, task: taskType) {
         const updatedTask = await taskModel.findByIdAndUpdate(id, {
@@ -62,18 +68,16 @@ class taskService {
             if (!task) {
                 throw new Error('Tarefa não encontrada');
             }
-    
             await userModel.findOneAndUpdate({ _id: task.author }, { $pull: { tasks: id } });
             await categoryModel.findOneAndUpdate({ _id: task.category }, { $pull: { tasks: id } });
-    
+
             await taskModel.findByIdAndDelete(id);
-    
+
             return "Tarefa removida com sucesso";
         } catch (error) {
             throw new Error(`Ocorreu um erro ao remover a tarefa: ${error}`);
         }
     }
 }
-
 
 export default new taskService()
