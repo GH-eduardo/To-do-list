@@ -8,6 +8,6 @@ export interface taskType {
         name: String,
         color: {type: String, enum: ['verde','vermelho','amarelo','azul','roxo','laranja'], required: true}
     },
-    status: { type: String, enum: ['verde','vermelho','amarelo','azul','roxo','laranja'], required: true},
+    status: { type: String, enum: ['pendente','em andamento','concluída'], required: true},
     author: String
 }

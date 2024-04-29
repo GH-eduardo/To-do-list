@@ -1,8 +1,7 @@
 import { Schema, model } from 'mongoose'
 
 const taskSchema = new Schema({
-    // _id: { type: objectId },
-    // task_id: { type: string },
+    // _id: Number,
     title: String,
     description: String,
     creation_date: { type: Date, default: Date.now},
@@ -12,10 +11,10 @@ const taskSchema = new Schema({
         name: String,
         color: { type: String, enum: ['verde','vermelho','amarelo','azul','roxo','laranja'], required: true}
     },
-    status: { type: String, enum: ['verde','vermelho','amarelo','azul','roxo','laranja'], required: true},
+    status: { type: String, enum: ['pendente','em andamento','concluída'], required: true},
     author: String
 }, {
-    timestamps: false
+
 });
 
 export default model("Task", taskSchema)
