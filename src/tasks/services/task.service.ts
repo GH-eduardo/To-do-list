@@ -34,6 +34,13 @@ class taskService {
         return await taskModel.find({ author: userId });
     }
 
+    async filterByCategory(categoryId: string) {
+        const tasks = await taskModel.find({ category: categoryId });
+        return tasks;
+    }
+    
+
+
     async update(id: string, task: taskType) {
         const updatedTask = await taskModel.findByIdAndUpdate(id, {
             title: task.title,

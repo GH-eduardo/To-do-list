@@ -25,6 +25,13 @@ class taskController {
         res.json(tasks);
     }
 
+    async filterByCategory(req: Request, res: Response) {
+        const tasks = await taskService.filterByCategory(req.params.id);
+        return res.json(tasks);
+    }
+
+
+
     async update(req: Request, res: Response) {
         const updatedTask = await taskService.update(req.params.id, req.body)
         res.status(200)
