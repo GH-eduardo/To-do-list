@@ -1,3 +1,5 @@
+import { Schema } from "mongoose"
+
 export interface taskType {
     title: String,
     description: String,
@@ -5,9 +7,12 @@ export interface taskType {
     conclusion_date: { type: Date},
     type: String,
     category: {
-        name: String,
-        color: {type: String, enum: ['verde','vermelho','amarelo','azul','roxo','laranja'], required: true}
+        type: Schema.Types.ObjectId,
+        ref: 'Category', required: false
     },
     status: { type: String, enum: ['pendente','em andamento','concluída'], required: true},
-    author: String
+    author: { 
+        type: Schema.Types.ObjectId,
+        ref: 'User', required: true 
+    },
 }

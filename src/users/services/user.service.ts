@@ -24,6 +24,7 @@ class userService {
             weight: user.weight,
             email: user.email,
             password: user.password,
+            tasks: user.tasks
         }, { new: true })
 
         return updatedUser

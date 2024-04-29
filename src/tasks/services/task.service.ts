@@ -1,10 +1,16 @@
 import taskModel from '../schemas/task.schema'
+import userModel from '../../users/schemas/user.schema'
 import { taskType } from '../types/task.type'
 
 class taskService {
 
     async create(task: taskType) {
         const createdTask = await taskModel.create(task)
+        const updatedUser = await userModel.findByIdAndUpdate(
+            task.author,
+            { $push: { tasks: createdTask._id } },
+            { new: true }
+        );
         return createdTask
     }
 
