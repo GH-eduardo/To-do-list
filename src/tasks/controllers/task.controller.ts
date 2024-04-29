@@ -20,6 +20,11 @@ class taskController {
         return res.json(findedTask)
     }
 
+    async findAllByUserId(req: Request, res: Response) {
+        const tasks = await taskService.findAllByUserId(req.params.id);
+        res.json(tasks);
+    }
+
     async update(req: Request, res: Response) {
         const updatedTask = await taskService.update(req.params.id, req.body)
         res.status(200)

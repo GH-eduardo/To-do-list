@@ -4,13 +4,13 @@ check-list:
 [X] - Entender a atividade, isso envolve ver a atividade
 [X] - Instalar as dependências
 [] - Opcional - Criar um dockerfile e um docker-compose.yml pra criar o container do banco escolhido
-[] - Criar as entidades
+[X] - Criar as entidades
 [X] - Da um check se o servidor está funcionando
 [X] - Criar a service para a entidade escolhida, e fazer o CRUD
 [X] - Fazer a controller
 [X] - Criar as rotas no arquivo de rotas
 [X] - Testar as rotas
-[] - Partir para as rotas com regra de negócio
+[X] - Partir para as rotas com regra de negócio
 
 Entidades:
 
@@ -28,18 +28,18 @@ Atributos: ID, nome, cor (para identificação visual).
 Tasks:
 
 X Rota para criação de uma nova tarefa.
- Rota para listar todas as tarefas de um usuário.
+X Rota para listar todas as tarefas de um usuário.
 X Rota para obter detalhes de uma tarefa específica.
 X Rota para atualizar uma tarefa existente.
 X Rota para excluir uma tarefa.
 
 Categorias:
 
-Rota para criação de uma nova categoria.
-Rota para listar todas as categorias de um usuário.
-Rota para obter detalhes de uma categoria específica.
-Rota para atualizar uma categoria existente.
-Rota para excluir uma categoria.
+X Rota para criação de uma nova categoria.
+X Rota para listar todas as categorias de um usuário.
+X Rota para obter detalhes de uma categoria específica.
+X Rota para atualizar uma categoria existente.
+X Rota para excluir uma categoria.
 
 Funcionalidades Adicionais utilizando Métodos de Array:
 

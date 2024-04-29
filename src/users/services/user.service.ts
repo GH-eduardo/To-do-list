@@ -1,4 +1,6 @@
 import userModel from '../schemas/user.schema'
+import taskModel from '../../tasks/schemas/task.schema'
+import categoryModel from '../../categories/schemas/category.schema'
 import { userType } from '../types/user.type'
 
 class userService {
@@ -32,13 +34,27 @@ class userService {
 
     async delete(id: string) {
         try {
-            await userModel.findByIdAndDelete(id)
-            return "Usuário removido com sucesso"
+            const user = await userModel.findById(id);
+            if (!user) {
+                throw new Error('Usuário não encontrado');
+            }
+
+            for (let taskId of user.tasks) {
+
+                const task = await taskModel.findById(taskId);
+                if (task && task.category) {
+                    await categoryModel.findByIdAndUpdate(task.category, { $pull: { tasks: taskId } });
+                }
+                await taskModel.findByIdAndDelete(taskId);
+            }
+
+            await userModel.findByIdAndDelete(id);
+    
+            return "Usuário removido com sucesso";
         } catch (error) {
-            throw new Error(`Ocorreu um erro ao remover o usuário: ${error}`)
+            throw new Error(`Ocorreu um erro ao remover o usuário: ${error}`);
         }
     }
-
 }
 
 

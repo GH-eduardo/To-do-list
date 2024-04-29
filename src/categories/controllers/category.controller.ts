@@ -20,6 +20,11 @@ class categoryController {
         return res.json(findedCategory)
     }
 
+    async findAllByUserId(req: Request, res: Response) {
+        const categories = await categoryService.findAllByUserId(req.params.id);
+        res.json(categories);
+    }
+
     async update(req: Request, res: Response) {
         const updatedCategory = await categoryService.update(req.params.id, req.body)
         res.status(200)

@@ -5,6 +5,7 @@ const tasks = Router()
 tasks.post('/tasks', taskController.create)
 tasks.get('/tasks', taskController.findAll)
 tasks.get('/tasks/:id', taskController.findById)
+tasks.get('/tasks/user/:id', taskController.findAllByUserId)
 tasks.put('/tasks/:id', taskController.update)
 tasks.delete('/tasks/:id', taskController.delete)
 
