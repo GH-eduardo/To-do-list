@@ -4,7 +4,7 @@
 execute no terminal (estando no diretório principarl do repositório): `npm run start:dev`
 - Observe que os "id's" gerados automaticamente pelo MongoDB tem o formato do tipo: *662fb7ba3b32c9665dd04a29*,
 os id's fornecidos abaixo são apenas para exemplo, você deve substituir por um id específico na hora da utilização.
-
+---
 ## Entidades:
 ### User
 - **Atributos:** _id, name, weight(peso), email, password
@@ -41,8 +41,8 @@ os id's fornecidos abaixo são apenas para exemplo, você deve substituir por um
     "color": "verde"
 }
 ```
-
-# Rotas
+---
+# Rotas:
 
 ## User
 
@@ -55,7 +55,7 @@ os id's fornecidos abaixo são apenas para exemplo, você deve substituir por um
 - Rota para atualizar um usuário existente: `http://localhost:3000/users/660c3411b974fc26087be5b7`
 ### DELETE
 - Rota para excluir um usuário: `http://localhost:3000/users/660c3411b974fc26087be5b7`
-
+---
 ## Task
 
 ### POST
@@ -78,7 +78,7 @@ os id's fornecidos abaixo são apenas para exemplo, você deve substituir por um
 - Rota para atualizar uma tarefa existente: `http://localhost:3000/tasks/662fdfb5eeeb539f8addd40f`
 ### DELETE
 - Rota para excluir uma tarefa: `http://localhost:3000/tasks/662fcd4056cfc8879a362e95`
-  
+---
 ## Category
 
 ### POST
@@ -91,8 +91,8 @@ os id's fornecidos abaixo são apenas para exemplo, você deve substituir por um
 - Rota para atualizar uma categoria existente: `http://localhost:3000/categories/662fb7ba3b32c9665dd04a29`
 ### DELETE
 - Rota para excluir uma categoria: `http://localhost:3000/categories/662fb7e43b32c9665dd04a2b`
-
-## Demais Observações
+---
+## Demais Observações:
 - Uma task sempre vai estar associada a um (e somente um) usuário, portanto não é possível criar uma task antes de haver no mínimo um usuário, por sua vez cada usuário pode ter infinitas tasks
 - Uma task pode ou não estar associada a uma categoria, é opcional a task ter uma categoria
 - Só podem haver no máximo 5 categorias, das cores: vermelho/verde/azul/amarelo/roxo
