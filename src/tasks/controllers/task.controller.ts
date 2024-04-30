@@ -52,6 +52,30 @@ class taskController {
         res.json(task);
     }
 
+    async findTasksDueInPeriod(req: Request, res: Response) {
+        const startDate = req.query.startDate;
+        const endDate = req.query.endDate;
+
+        if (typeof startDate === 'string' && typeof endDate === 'string') {
+            const tasks = await taskService.findTasksDueInPeriod(new Date(startDate), new Date(endDate));
+            return res.json(tasks);
+        } else {
+            console.log("Invalid date format, expected: yyyy-mm-dd")
+        }
+    }
+
+    async calculateAverageCompletion(req: Request, res: Response) {
+        const averageCompletion = await taskService.calculateAverageCompletion()
+        res.status(200)
+        return res.json(averageCompletion)
+    }
+
+    async findTaskWithLongestDescription(req: Request, res: Response) {
+        const task = await taskService.findTaskWithLongestDescription()
+        res.status(200)
+        return res.json(task)
+    }
+
     async update(req: Request, res: Response) {
         const updatedTask = await taskService.update(req.params.id, req.body)
         res.status(200)

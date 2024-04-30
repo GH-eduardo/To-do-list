@@ -60,6 +60,33 @@ class taskService {
         return task;
     }
 
+    async findTasksDueInPeriod(startDate: Date, endDate: Date) {
+        const tasks = await taskModel.find({
+            creation_date: {
+                $gte: startDate,
+                $lte: endDate
+            }
+        });
+        return tasks;
+    }
+
+    async calculateAverageCompletion() {
+        const tasks = await taskModel.find();
+        const completedTasks = tasks.filter(task => task.status === 'concluída');
+        return ("A média geral de conclusão de tarefas é de: " + (completedTasks.length / tasks.length).toFixed(2));
+    }
+
+    async findTaskWithLongestDescription() {
+        const tasks = await taskModel.find();
+        let longestDescriptionTask = tasks[0];
+        for (let i = 1; i < tasks.length; i++) {
+            if (tasks[i].description.length > longestDescriptionTask.description.length) {
+                longestDescriptionTask = tasks[i];
+            }
+        }
+        return longestDescriptionTask;
+    }
+
     async update(id: string, task: taskType) {
         const updatedTask = await taskModel.findByIdAndUpdate(id, {
             title: task.title,

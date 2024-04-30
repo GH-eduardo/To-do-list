@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose'
 
 const taskSchema = new Schema({
     title: String,
-    description: String,
+    description: { type: String, required: true},
     creation_date: { type: Date, default: Date.now},
     conclusion_date: { type: Date},
     type: String,
