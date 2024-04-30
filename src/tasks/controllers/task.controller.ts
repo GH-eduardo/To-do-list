@@ -76,6 +76,11 @@ class taskController {
         return res.json(task)
     }
 
+    async groupByCategory(req: Request, res: Response) {
+        const groupedTasks = await taskService.groupByCategory();
+        res.json(groupedTasks);
+    }
+
     async update(req: Request, res: Response) {
         const updatedTask = await taskService.update(req.params.id, req.body)
         res.status(200)

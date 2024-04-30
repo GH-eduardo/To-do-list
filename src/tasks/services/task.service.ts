@@ -87,6 +87,27 @@ class taskService {
         return longestDescriptionTask;
     }
 
+    async groupByCategory() {
+        const tasks = await taskModel.find().populate('category');
+        const categoryCounts = tasks.reduce((counts: any[], task: any) => {
+            if (task.category) {
+                const existingCategory = counts.find((c: any) => c.name === task.category.name);
+                if (existingCategory) {
+                    existingCategory.quantidade++;
+                } else {
+                    counts.push({
+                        name: task.category.name,
+                        color: task.category.color,
+                        quantidade: 1
+                    });
+                }
+            }
+            return counts;
+        }, []);
+
+        return categoryCounts;
+    }
+
     async update(id: string, task: taskType) {
         const updatedTask = await taskModel.findByIdAndUpdate(id, {
             title: task.title,

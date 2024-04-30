@@ -1,7 +1,7 @@
 import { Schema } from "mongoose"
 
 export interface taskType {
-    title: String,
+    title: { type: String, required: true},
     description: { type: String, required: true},
     creation_date: { type: Date, default: Date.now},
     conclusion_date: { type: Date},
