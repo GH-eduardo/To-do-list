@@ -93,7 +93,7 @@ os id's fornecidos abaixo são apenas para exemplo, você deve substituir por um
 - Rota para excluir uma categoria: `http://localhost:3000/categories/662fb7e43b32c9665dd04a2b`
 
 ## Demais Observações
-- Uma task sempre vai estar associada a um usuário, portanto não é possível criar uma task antes de haver no mínimo um usuário
+- Uma task sempre vai estar associada a um (e somente um) usuário, portanto não é possível criar uma task antes de haver no mínimo um usuário, por sua vez cada usuário pode ter infinitas tasks
 - Uma task pode ou não estar associada a uma categoria, é opcional a task ter uma categoria
 - Só podem haver no máximo 5 categorias, das cores: vermelho/verde/azul/amarelo/roxo
 - Após deletar algo a base de dados é atualizada automaticamente, por exemplo: se um usuário for deletado todas as tasks dele serão deletadas também e assim por diante...
