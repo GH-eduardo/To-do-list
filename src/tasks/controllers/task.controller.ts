@@ -52,6 +52,12 @@ class taskController {
         res.json(task);
     }
 
+    async findOldestTaskByUserId(req: Request, res: Response) {
+        const userId = req.params.id;
+        const task = await taskService.findOldestTaskByUserId(userId);
+        res.json(task);
+    }
+
     async findTasksDueInPeriod(req: Request, res: Response) {
         const startDate = req.query.startDate;
         const endDate = req.query.endDate;

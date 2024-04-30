@@ -60,6 +60,11 @@ class taskService {
         return task;
     }
 
+    async findOldestTaskByUserId(userId: string) {
+        const task = await taskModel.findOne({ author: userId }).sort({ creation_date: 1 });
+        return task;
+    }
+
     async findTasksDueInPeriod(startDate: Date, endDate: Date) {
         const tasks = await taskModel.find({
             creation_date: {
