@@ -1,7 +1,7 @@
 # API To-Do List feita em typescript com node.js, express e MongoDB
 
 - **Para inicializar:**
-execute no terminal (estando no diretório principarl do repositório): `npm run start:dev`
+execute no terminal (estando no diretório principal do repositório): `npm run start:dev`
 - Observe que os "id's" gerados automaticamente pelo MongoDB tem o formato do tipo: *662fb7ba3b32c9665dd04a29*,
 os id's fornecidos abaixo são apenas para exemplo, você deve substituir por um id específico na hora da utilização.
 ---
